@@ -1,0 +1,101 @@
+# Fatorial em SCP (Script de chaves em portugues)
+{ int i n fat }
+{ mostra "Entre n: " }
+{ le n }
+{ se { < n 0 }
+  { { mostra " Entre valor valido " } }
+  { { = i 1 } { = fat 1 }
+    { enquanto { <= i n }
+      { = fat { * fat i } }
+      { = i { + i 1 } }
+    }
+    { mostra { . "Fatorial de " { . n { . " é igual à " fat } } } }
+  }
+}
+
+# Atribuição
+{ int a1 a2 }
+{ = a1 { + a2 10 } }
+{ mostra a1 }
+
+# Laço
+{ int n }
+{ mostra "Digite n:" }
+{ le n }
+{ int i }
+{ = i 0 }
+{ enquanto { < i n }
+  { mostra i }
+  { mostra " " }
+  { = i { + i 1 } }
+}
+
+# Somar 3 variáveis
+{ int a b c d }
+{ mostra "Digite a:" }
+{ le a }
+{ mostra "Digite b:" }
+{ le b }
+{ mostra "Digite c:" }
+{ le c }
+{ = d { + d { + a { + b c } } } }
+{ mostra d }
+
+# Fibonacci
+{ mostra "Digite n: " }
+  { int n } { le n }
+{ # inicio Se 1
+  se { == n 0 } {
+    { mostra { . "Fibonacci de " { . n { . " é igual à " n } } } }
+  } { # inicio Senão 1
+    { # inicio Se 2
+      se { == n 1 } {
+        { mostra { . "Fibonacci de " { . n { . " é igual à " n } } } }
+      } { # inicio Senão 2
+        { int fib anterior posterior } { = fib 0 } { = anterior 0 } { = posterior 1 }
+        { int i } { = i 1 }
+        { # inicio Enquanto
+          enquanto { < i n }
+            { = fib { + anterior posterior } }
+              { = anterior posterior }
+              { = posterior fib }
+          { = i { + i 1 } }
+        } # fim Enquanto
+        { mostra { . "Fibonacci de " { . n { . " é igual à " fib } } } }
+      } # fim Senão 2
+    } # fim Se 2
+  } # fim Senão 1
+} # fim Se 1
+
+# Concatenação 2
+{ int a b }
+{ mostra "Digite um número: " }
+{ le a }
+{ mostra "Digite outro número: " }
+{ le b }
+{
+  mostra {
+    . "Resultado de " {
+      . a {
+        . " + " {
+          . b {
+            . " é igual à " {
+              + a b
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# para testar
+{ int a }
+{ real b }
+{ texto c }
+{ = a 10 }
+{ = b 11.0 }
+{ = c "12" }
+{ mostra "Agora vai" }
+{ mostra { . c " dar certo" } }
+{ mostra { . "Agora vai" c } }

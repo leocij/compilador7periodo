@@ -1,0 +1,20 @@
+<list_cmd> ::= <cmd> <list_cmd> | &
+<cmd> ::= '{' <cmd_inter> '}'
+<cmd_inter> ::= <decl> | <atrib> | <laco> | <cond> | <escrita> | <leitura>
+<decl> ::= <tipo> <list_id>
+<tipo> ::= 'int' | 'real' | 'texto' | 'logico'
+<list_id> ::= id <list_id2>
+<list_id2> ::= <list_id> | &
+<atrib> ::= '=' id <exp_arit>
+<exp_arit> ::= <operan> | '{' <op_arit> <exp_arit> <exp_arit> '}'
+<operan> ::= id | cli | clr | cls
+<op_arit> ::= '+' | '-' | '*' | '/' | '.'
+<laco> ::= 'enquanto' <exp_log> <list_cmd>
+<exp_log> ::= '{' <exp_rel> '}'
+<exp_rel> ::= <op_rel> <operan> <operan> | <op_log> '{' <exp_rel> '}' '{' <exp_rel> '}'
+<op_log> ::= '&&' | '||'
+<op_rel> ::= '>' | '<' | '>=' | '<=' | '==' | '!='
+<cond> ::= 'se' <exp_log> '{' <list_cmd> '}' <senao>
+<senao> ::= '{' <list_cmd> '}' | &
+<escrita> ::= 'mostra' <exp_arit>
+<leitura> ::= 'le' id

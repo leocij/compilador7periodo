@@ -1,0 +1,25 @@
+# Fibonacci
+{ mostra "Digite n: " }
+  { int n } { le n }
+{ # inicio Se 1
+  se { == n 0 } {
+    { mostra { . "Fibonacci de " { . n { . " é igual à " n } } } }
+  } { # inicio Senão 1
+    { # inicio Se 2
+      se { == n 1 } {
+        { mostra { . "Fibonacci de " { . n { . " é igual à " n } } } }
+      } { # inicio Senão 2
+        { int fib anterior posterior } { = fib 0 } { = anterior 0 } { = posterior 1 }
+        { int i } { = i 1 }
+        { # inicio Enquanto
+          enquanto { < i n }
+            { = fib { + anterior posterior } }
+              { = anterior posterior }
+              { = posterior fib }
+          { = i { + i 1 } }
+        } # fim Enquanto
+        { mostra { . "Fibonacci de " { . n { . " é igual à " fib } } } }
+      } # fim Senão 2
+    } # fim Se 2
+  } # fim Senão 1
+} # fim Se 1

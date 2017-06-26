@@ -1,0 +1,10 @@
+# Testando
+
+{ int a b }
+{ = a 10 }
+{ mostra "Digite b:" }
+{ le b }
+{ mostra "A -> " }
+{ mostra a }
+{ mostra "B -> " }
+{ mostra b }
